@@ -21,3 +21,17 @@ class Contact:
        for contact in cls.contact_list:
            if contact.phone_number==phone_number:
                return contact
+
+    @classmethod
+    def contact_exist(cls,phone_number):
+        
+        for contact in cls.contact_list:
+            if contact.phone_number==phone_number:
+                return True
+
+        return False
+    
+
+    @classmethod
+    def display_contacts(cls):
+        return cls.contact_list
