@@ -1,4 +1,5 @@
 import unittest #python test framework
+import pyperclip
 from contact import Contact
 
 class TestContact(unittest.TestCase): #subclass that inherits uniitest.testcase
@@ -59,6 +60,12 @@ class TestContact(unittest.TestCase): #subclass that inherits uniitest.testcase
 
     def test_display_all_contacts(self):
         self.assertEqual(Contact.display_contacts(), Contact.contact_list)
+
+    def test_copy_email(self):
+        self.new_contact.save_contact()
+        Contact.copy_email("2547000000")
+        
+        self.assertEqual(self.new_contact.email,pyperclip.paste())
 
 if __name__ == '__main__':
     unittest.main()
